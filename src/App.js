@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import useRandomJoke from "./useRandomJoke";
 
 function App() {
@@ -14,9 +14,14 @@ function App() {
 
   const generateJoke = (e) => {
     e.preventDefault();
-    setFirstName(firstNameRef.current.value);
-    setlastName(lastNameRef.current.value);
+    firstNameRef.current.value
+      ? setFirstName(firstNameRef.current.value)
+      : setFirstName(firstName);
+    lastNameRef.current.value
+      ? setlastName(lastNameRef.current.value)
+      : setlastName(lastName);
     setGenerate(!generate);
+    console.log("first name", firstNameRef.current.value);
   };
 
   return (

@@ -10,8 +10,8 @@ function useRandomJoke(firstName, lastName, generate) {
       )
         .then((res) => res.json())
         .then((data) => {
-          setJoke(data.value.joke);
-          console.log(data.value.joke);
+          setJoke(data.value.joke.split("&quot;").join('"'));
+          //   console.log(data.value.joke);
         });
 
     fetchJoke();
